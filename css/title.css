@@ -1,0 +1,125 @@
+@keyframes contrasto{
+    0%   {
+        filter: brightness(1);
+        filter: contrast(1);
+        -webkit-filter: brightness(1);
+        -webkit-filter: contrast(1);
+    }
+    50%  {
+        filter: brightness(0.4);
+        filter: contrast(0.4);
+        -webkit-filter: brightness(0.4);
+        -webkit-filter: contrast(0.4);
+    }
+    100% {
+        filter: brightness(1);
+        filter: contrast(1);
+        -webkit-filter: brightness(1);
+        -webkit-filter: contrast(1);
+    }
+}
+@font-face {
+    font-family: 'avenir';
+    src: url("fonts/avenir-next-regular.woff");
+}
+@font-face {
+    font-family: 'arcade';
+    src: url("fonts/ArcadeClassic.ttf");
+}
+body{
+    margin: 0;
+    background-color: black;
+    transition: 1.7s ease-in-out;
+}
+#title{
+    position: fixed;
+    z-index: 0;
+    width: 80%;
+    left: 10%;
+    top: 16%;
+    opacity: 0;
+    transition: 0.6s;
+}
+#titlechar{
+    position: fixed;
+    z-index: 1;
+    width: 90%;
+    right: 0;
+    bottom: 4%;
+    opacity: 0;
+    transition: 1s;
+}
+h1{
+    color: white;
+    font-family: avenir;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 11px;
+    opacity: 0;
+    transition: 1s;
+}
+#menu{
+    position: fixed;
+    width: 70%;
+    z-index: 4;
+    left: 50%;
+    border-radius: 8px;
+    transform: translate(-50%,0);
+    background-color: rgba(0,0,0,0.6);
+    bottom: 12%;
+    transition: 1s;
+    opacity: 0;
+    pointer-events: none;
+}
+#menu .divisor{
+    float: left;
+    width: 100%;
+}
+#menu a{
+    width: 100%;
+    float: left;
+    font-family: avenir;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 5.4vw;
+    padding: 8px 0 8px 0;
+    animation-name: contrasto;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+audio {
+    display: none;
+}
+.blackness{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 7;
+    background-color: rgb(0,0,0,0.1);
+    top: 0;
+    left: 0;
+}
+.alert{
+    position: fixed;
+    z-index: 8;
+    width: 74%;
+    display: none;
+    background-color: black;
+    border: 4px solid white;
+    font-family: arcade;
+    word-spacing: 1.1vw;
+    padding: 3%;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 6vw;
+}
