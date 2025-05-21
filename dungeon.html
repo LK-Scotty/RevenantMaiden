@@ -1,0 +1,200 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Dungeon Exploration</title>
+        <link href="css/styling.css" rel="stylesheet"/>
+    </head>
+    <body oncontextmenu="return false">
+        <canvas width="100" height="100" id="area"></canvas>
+        <img src="css/assets/light.png" class="light"/>
+        <canvas width="100" height="100" id="transition"></canvas>
+        <p id="floor-info">Floor - <span>1</span></p>
+        <div id="nav">
+            <div class="le_experience">
+                <h1>Lv. 1</h1>
+                <div class="experience_bar">
+                    <div class="experience"></div>
+                    <div class="decal">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="divisor"></div>
+            <div class="nav-i" id="hp">
+                <img src="css/assets/hp.png"/>
+                <span>100/100</span>
+            </div>
+            <div class="nav-i" id="gems">
+                <img src="css/assets/shard.png"/>
+                <span>0</span>
+            </div>
+            <a href="#" class="nav-i overworld-ui" id="grimoire">
+                <img style="margin-left: 30%;" src="css/assets/necronomicon.png"/>
+            </a>
+            <div class="nav-i battle-ui">
+                <img class="le-tensione" src="css/assets/sp.png"/>
+                <div id="tension" class="le-tensione">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <img src="css/assets/encounter1.gif" class="overworld-ui" id="danger"/>
+        <div id="battle">
+            <div id="battle-area">
+                <div class="b_floor">
+                    <div></div>
+                </div>
+                <div class="b_floor_decal">
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                    <img src="css/assets/dungeon1/floor decal1.png"/>
+                    <img src="css/assets/dungeon1/floor decal2.png"/>
+                </div>
+                <div class="announcements"></div>
+                <img src="css/assets/char/battle.png" class="mob"/>
+                <img src="css/assets/dungeon1/slime.png" class="enemy"/>
+                <img class="weapon"/>
+            </div>
+            <div id="battle-commands">
+                <a href="#" class="battle-btn" value="def">
+                    <img src="css/assets/icon shield.png"/>
+                </a>
+                <a href="#" class="battle-btn" value="atk">
+                    <img src="css/assets/icon sword.png"/>
+                </a>
+            </div>
+        </div>
+        <img src="css/assets/grimoire.png" class="grimoirebook"/>
+        <div id="grim-menu">
+            <a href="#" value="map" class="menu-selected menu">
+                <img src="css/assets/map.png"/>
+            </a>
+            <a href="#" value="lvup" class="menu">
+                <img src="css/assets/lv.png"/>
+            </a>
+            <a href="#" value="config" class="menu">
+                <img src="css/assets/config.png"/>
+            </a>
+        </div>
+        <div width="250" height="250" class="minimap-cont grimoire-selection">
+            <canvas width="250" height="250" id="minimap"></canvas>
+        </div>
+
+        <div class="lvup grimoire-selection">
+            <h1>AP: <span id="current-ap">0</span></h1>
+            <div class="opsepa">
+                <p>Atk.</p>
+                <div id="atk-bar" class="ap-bar"></div>
+                <a href="#" value="atk" class="ap-up"><img src="css/assets/plus.png"/></a>
+            </div>
+            <div class="opsepa">
+                <p>Def.</p>
+                <div id="def-bar" class="ap-bar"></div>
+                <a href="#" value="def" class="ap-up"><img src="css/assets/plus.png"/></a>
+            </div>
+            <div class="opsepa">
+                <p>HP.</p>
+                <div id="hp-bar" class="ap-bar"></div>
+                <a href="#" value="hp" class="ap-up"><img src="css/assets/plus.png"/></a>
+            </div>
+            <div class="opsepa">
+                <p>O.drive</p>
+                <div id="drive-bar" class="ap-bar"></div>
+                <a href="#" value="drive" class="ap-up"><img src="css/assets/plus.png"/></a>
+            </div>
+        </div>
+        
+        <form class="configuration grimoire-selection">
+            <h1>Config</h1>
+            <div class="opsepa">
+                <label>Vibration</label>
+                <a href="#" id="option-vibration" class="mono-sel">ON</a>
+            </div>
+            <div class="opsepa">
+                <label>FX Vol</label>
+                <a href="#" id="fxvol-sub" class="vol"><</a>
+                <div id="fx-bar" class="volume-bar">
+                    <div></div>
+                </div>
+                <a href="#" id="fxvol-sum" class="vol">></a>
+            </div>
+            <div class="opsepa">
+                <label>Voice Vol</label>
+                <a href="#" id="voicevol-sub" class="vol"><</a>
+                <div id="voice-bar" class="volume-bar">
+                    <div></div>
+                </div>
+                <a href="#" id="voicevol-sum" class="vol">></a>
+            </div>
+            <div class="opsepa">
+                <label>Music Vol</label>
+                <a href="#" id="musicvol-sub" class="vol"><</a>
+                <div id="music-bar" class="volume-bar">
+                    <div></div>
+                </div>
+                <a href="#" id="musicvol-sum" class="vol">></a>
+            </div>
+            <div class="opsepa">
+                <label>Auto Save</label>
+                <a href="#" id="option-autosave" class="mono-sel">ON</a>
+            </div>
+            <div>
+                <a href="#" id="option-deletesave" class="mono-sel">delete savefile</a>
+            </div>
+            <button>Save</button>
+        </form>
+        <img src="css/assets/dpad.png" id="gpup" class="gamepad"/>
+        <img src="css/assets/dpad.png" id="gpright" class="gamepad"/>
+        <span class='gamepad'></span>
+        <img src="css/assets/dpad.png" id="gpdown" class="gamepad"/>
+        <img src="css/assets/dpad.png" id="gpleft" class="gamepad"/>
+        <audio preload="auto" controls="controls" id="audio-fx"></audio>
+        <audio preload="auto" controls="controls" id="voice-fx"></audio>
+        <audio id="audio-music" controls muted autoplay loop src="bgm/dat groove I.mp3"></audio>
+        <audio id="battle-music" controls muted autoplay loop src="bgm/dat groove II.mp3"></audio>
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/jquery.vibrate.min.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3415341673902269"
+        crossorigin="anonymous"></script>
+        <!-- Revenant Ad -->
+        <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-3415341673902269"
+                data-ad-slot="2372240911"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </body>
+</html>
